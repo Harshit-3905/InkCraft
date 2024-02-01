@@ -3,7 +3,7 @@ import AddBlocks from "./components/AddBlocks";
 
 function App() {
   return (
-    <div className="min-h-100vh w-full">
+    <div className="h-full w-full">
       <BlocksContainer />
       <AddBlocks />
     </div>

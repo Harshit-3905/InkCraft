@@ -34,11 +34,11 @@ const TextBlock = ({ id, content }) => {
 
   return (
     <Card
-      className="w-[400px] bg-orange-500 flex"
+      className="w-[400px]  bg-orange-500 flex flex-col"
       onMouseEnter={() => setIshover(true)}
       onMouseLeave={() => setIshover(false)}
     >
-      {parse(content)}
+      <div>{parse(content)}</div>
       {ishover && (
         <div className="mt-5 flex gap-4">
           <Button className="bg-yellow-500" onClick={editBlock}>
