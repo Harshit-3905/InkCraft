@@ -1,10 +1,12 @@
-import { Button } from "antd";
+import BlocksContainer from "./components/BlocksContainer";
+import AddBlocks from "./components/AddBlocks";
 
 function App() {
   return (
-    <>
-      <Button type="primary">Button</Button>
-    </>
+    <div className="min-h-100vh w-full">
+      <BlocksContainer />
+      <AddBlocks />
+    </div>
   );
 }
 
