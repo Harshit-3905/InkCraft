@@ -1,18 +1,19 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-const AddImageBlock = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const AddImageBlock = ({ onImageChange }) => {
+  const [selectedImage, setSelectedImage] = useState();
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
+      reader.readAsDataURL(file);
       reader.onload = () => {
         setSelectedImage(reader.result);
+        onImageChange(reader.result);
       };
-      reader.readAsDataURL(file);
     }
   };
-
   return (
     <div>
       <label htmlFor="image">Add Image : </label>
@@ -30,6 +31,10 @@ const AddImageBlock = () => {
       )}
     </div>
   );
+};
+
+AddImageBlock.propTypes = {
+  onImageChange: PropTypes.func.isRequired,
 };
 
 export default AddImageBlock;
