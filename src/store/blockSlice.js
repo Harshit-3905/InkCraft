@@ -16,9 +16,15 @@ const blockSlice = createSlice({
       const index = state.findIndex((block) => block.id === action.payload.id);
       state[index] = action.payload;
     },
+    moveBlock: (state, action) => {
+      const { sourceIndex, destinationIndex } = action.payload;
+      const [movedBlock] = state.splice(sourceIndex, 1);
+      state.splice(destinationIndex, 0, movedBlock);
+    },
   },
 });
 
-export const { addBlock, removeBlock, updateBlock } = blockSlice.actions;
+export const { addBlock, removeBlock, updateBlock, moveBlock } =
+  blockSlice.actions;
 
 export default blockSlice.reducer;

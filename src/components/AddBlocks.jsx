@@ -18,7 +18,7 @@ const AddBlocks = () => {
   const handleAdd = () => {
     setLoading(true);
     const block = {
-      id: new Date().getTime(),
+      id: new Date().getTime().toString(),
       type,
       content,
     };

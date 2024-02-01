@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const ImageBlock = ({ content }) => {
   return (
-    <Card style={{ width: 300 }}>
+    <Card className="w-[400px] bg-orange-500">
       <img src={content} />
     </Card>
   );
