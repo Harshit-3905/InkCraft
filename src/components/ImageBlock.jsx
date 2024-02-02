@@ -36,7 +36,7 @@ const ImageBlock = ({ id }) => {
 
   return (
     <Card
-      className="w-[400px] bg-orange-500"
+      className="w-[350px] md:w-[500px] bg-orange-500"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >

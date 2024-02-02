@@ -33,7 +33,7 @@ const TextBlock = ({ id, content }) => {
 
   return (
     <Card
-      className="w-[400px]  bg-orange-500 flex flex-col"
+      className="w-[350px] md:w-[500px] bg-orange-500 flex flex-col"
       onMouseEnter={() => setIshover(true)}
       onMouseLeave={() => setIshover(false)}
     >
