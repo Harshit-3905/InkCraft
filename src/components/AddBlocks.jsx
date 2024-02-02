@@ -38,7 +38,7 @@ const AddBlocks = () => {
     setOpen(false);
   };
   return (
-    <div className="h-full flex justify-center items-center">
+    <div className="mt-5 flex justify-center items-center">
       <button
         onClick={showModal}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

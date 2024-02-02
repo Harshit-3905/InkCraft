@@ -17,7 +17,7 @@ const BlocksContainer = () => {
     );
   };
   return (
-    <div className="w-full flex flex-col gap-4 justify-center items-center mt-5">
+    <div className="w-full flex gap-4 justify-center items-center mt-5">
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="uniqueDroppableId">
           {(provided) => (
