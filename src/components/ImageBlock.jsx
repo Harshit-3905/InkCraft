@@ -7,6 +7,7 @@ import AddImageBlock from "./AddImageBlock";
 
 const ImageBlock = ({ id }) => {
   const [image, setImage] = useState(sessionStorage.getItem(id));
+  const [newImage, setNewImage] = useState(image);
   const [isHover, setIsHover] = useState(false);
   const [edit, setEdit] = useState(false);
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const ImageBlock = ({ id }) => {
 
   const handleEdit = () => {
     setEdit(false);
-    // Call a function to handle the update
+    setImage(newImage);
     handleUpdateBlock();
   };
 
@@ -65,7 +66,7 @@ const ImageBlock = ({ id }) => {
         ]}
       >
         {/* Pass 'image' state instead of 'content' */}
-        <AddImageBlock content={image} onImageChange={setImage} />
+        <AddImageBlock content={image} onImageChange={setNewImage} />
       </Modal>
     </Card>
   );
