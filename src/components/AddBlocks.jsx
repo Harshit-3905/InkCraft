@@ -9,7 +9,8 @@ const AddBlocks = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [type, setType] = useState("text");
-  const [content, setContent] = useState("");
+  const [textcontent, setTextContent] = useState("");
+  const [imagecontent, setImageContent] = useState("");
   const dispatch = useDispatch();
   const showModal = () => {
     setOpen(true);
@@ -17,13 +18,18 @@ const AddBlocks = () => {
 
   const handleAdd = () => {
     setLoading(true);
+    const id = new Date().getTime().toString();
+    if (type === "image") {
+      sessionStorage.setItem(id, imagecontent);
+    }
     const block = {
-      id: new Date().getTime().toString(),
+      id,
       type,
-      content,
+      content: type === "image" ? id : textcontent,
     };
     dispatch(addBlock(block));
-    setContent("");
+    setTextContent("");
+    setImageContent("");
     setOpen(false);
     setLoading(false);
   };
@@ -59,17 +65,27 @@ const AddBlocks = () => {
         ]}
       >
         <Tabs
+          defaultActiveKey="1"
           style={{ marginBottom: 32 }}
           onChange={(key) => setType(key === "1" ? "text" : "image")}
-          defaultActiveKey="1"
-        >
-          <Tabs.TabPane tab="Text Block" key="1">
-            <AddTextBlock content={content} onTextChange={setContent} />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Image Block" key="2">
-            <AddImageBlock content={content} onImageChange={setContent} />
-          </Tabs.TabPane>
-        </Tabs>
+          items={[
+            {
+              key: "1",
+              label: "Text",
+              children: (
+                <AddTextBlock
+                  content={textcontent}
+                  onTextChange={setTextContent}
+                />
+              ),
+            },
+            {
+              key: "2",
+              label: "Image",
+              children: <AddImageBlock onImageChange={setImageContent} />,
+            },
+          ]}
+        ></Tabs>
       </Modal>
     </div>
   );

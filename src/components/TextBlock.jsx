@@ -1,8 +1,7 @@
-import { Card, Modal } from "antd";
+import { Card, Modal, Button } from "antd";
 import parse from "html-react-parser";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { Button } from "antd";
 import { useDispatch } from "react-redux";
 import { removeBlock, updateBlock } from "../store/blockSlice";
 import AddTextBlock from "./AddTextBlock";
